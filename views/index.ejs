@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movies</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Upload CSV File</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="csvFile" accept=".csv" required />
+      <button type="submit">Upload</button>
+    </form>
+    <br />
+    <% if (movies.length > 0) { %>
+    <form action="/movies" method="get">
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" name="genre" />
+      <br />
+      <label for="language">Language:</label>
+      <input type="text" id="language" name="lang" />
+      <br />
+      <button type="submit">Filter</button>
+    </form>
+    <% }%>
+    <br />
+
+    <h1>Movies</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>IMDB Title ID</th>
+          <th>Original Title</th>
+          <th>Year</th>
+          <th>Date Published</th>
+          <th>Genre</th>
+          <th>Duration</th>
+          <th>Language</th>
+          <th>Description</th>
+          <th>Reviews from Users</th>
+          <th>Reviews from Critics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (movies.length > 0) { %> <% movies.forEach((movie) => { %>
+        <tr>
+          <td><%= movie.imdb_title_id %></td>
+          <td><%= movie.original_title %></td>
+          <td><%= movie.year %></td>
+          <td><%= movie.date_published.toDateString() %></td>
+          <td><%= movie.genre %></td>
+          <td><%= movie.duration %></td>
+          <td><%= movie.language %></td>
+          <td><%= movie.description %></td>
+          <td><%= movie.reviews_from_users %></td>
+          <td><%= movie.reviews_from_critics %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <p>No movies found.</p>
+    <% } %>
+  </body>
+</html>
