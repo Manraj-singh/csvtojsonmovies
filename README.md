@@ -2,6 +2,7 @@
 # csvtojsonmovies
 Nodejs app to import movie details in csv file , uploading it to Database and displaying it in tabular format with additional endpoints to filter movies and get json response
 
+**refer the document for images,more details**: https://docs.google.com/document/d/1nkjWZ1gN0Vj25bhTnUy6j5dCbPGNyCv4/edit
 **API deployed on:** https://csvtojsonmovies.onrender.com/
 ## Getting Started
 
