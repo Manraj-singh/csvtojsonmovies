@@ -29,7 +29,7 @@ download the zip file of postgres-branch
 
 
 ## ENDPOINTS:
-**baseurl** : https://csvtojsonmovies.onrender.com/pg
+**baseurl** : http://localhost:8000/pg
 -   [POST] - /upload : to upload csv data into postgres
 -   [GET] - /movies?genre=comedy : to get filtered data as per genre
 -   [GET] - /movies?lang=english : to get filtered data as per language
