@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8000;
 
 //*Requiring configs
 const db = require("./configs/mongoose");
+const pgDB = require("./configs/postgres");
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 //*MIDDLEWARES
@@ -19,7 +20,7 @@ app.use(express.json({ type: "application/json" }));
 // Route for static files
 app.use(express.static("uploads"));
 //using expresss router
-app.use("/", require("./Routes/movieRoute"));
+app.use("/", require("./Routes"));
 
 //express app listening on defined PORT
 app.listen(PORT || 8001, (err) => {
